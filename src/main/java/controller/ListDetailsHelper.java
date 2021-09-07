@@ -51,4 +51,12 @@ public class ListDetailsHelper {
 		em.close();
 		
 	}
+	
+	public void updateList(ListDetails toEdit) {
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		em.merge(toEdit);
+		em.getTransaction().commit();
+		em.close();
+	}
 }
